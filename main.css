@@ -1,0 +1,244 @@
+/* Global Content Formatting and Styles 
+ defines: color, font-size, size of buttons, legend components
+ not define: size, position*/
+/*the page is always scroll on vertical. The height of the map must be pre-determined before loading. However, the height needs to be changed
+ *according to the viewport of the media. Need to find a solution*/ 
+
+/*html is the parent element of body. set their height to 100% so that google map use the reference of the size to load*/ 
+ html, body{
+	height: 100%;
+	width:100%;
+}
+body{
+	margin: 0 ;
+	padding: 0;
+	line-height: 1.5em;
+	font-size: 14px;
+}
+#wrapper{
+	position: relative;
+	margin:0 ;
+	background-color: #105187;
+	height: 100%;
+}
+
+p{margin: 0em 0em .75em 0em;}
+/*remove the undline of all hyperlinks*/
+a {text-decoration: none;}
+
+header, article, #content-pane, #map_canvas, #credit, footer {
+	display: block;
+}
+	
+header{
+	margin: 0;
+	padding: 5px;
+	background-color:#ffffff;
+	position:relative;
+	display: block;
+}
+
+.buttongroup{ 
+	position: absolute;
+	display:block;
+	float:right;
+	bottom: 10px;
+	width: auto;
+	right: 15px;
+}
+#btnRoadMap{display:none}
+#btnSateMap{display:none}
+#btnBaseMap, #btnRoadMap, #btnSateMap, #btnQuery{
+	background:none!important;
+	border: none;
+	padding:0!important;
+	font-size: 1.2em;
+	text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	cursor: grab;
+}
+#btnBaseMap:hover, #btnRoadMap:hover, #btnSateMap:hover{
+	font-weight:bold;
+	color: #105187;
+	border: none;
+}
+input[type="text"] {
+    border: none;
+	cursor: text;
+	position:relative;
+	left: 5px;
+}
+#btnQuery{
+	position:relative;
+	top: 5px;
+	left: 5px;
+}
+/*======== Styling for the article section */
+article{ 
+
+	margin: 0;
+	padding: 0; 
+	width: 100%;
+	height: 85%;		/* how to determine the height? it defines the height of map in the second columnu of the table*/
+}
+table{
+	border-collapse: collapse;
+	margin: 0;
+	padding:0;
+	width: 100%;
+	height: 100%;
+}
+
+tr,td{
+	margin: 0;
+	padding:0;
+	position: relative;
+}
+td:nth-child(1){
+	width: 250px;
+}
+/*
+table, th, td {
+   border: 1px solid yellow;
+}
+*/
+/*==== left column in the article section */
+#content-pane{
+	padding: 0;
+	background-color: #fff; 
+	opacity: 0.5;
+	float: left;
+	height: 100%;
+	width: 100%;
+	/*width: 150px;*/
+
+}
+/*==== right column in the article section */
+#map_canvas{
+	margin: 0;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+}
+/*==== bottom right beneath map_canvas in the article section */
+#credit{
+	position: absolute;
+	padding:  0;
+	background-color: #fff;
+	opacity: 0.8;
+	bottom: 0;
+	right: 0;
+	height: 1.5em;
+	width: 100%;
+	float:right;
+
+}
+#credit a{
+	font-size: 1.0em; 
+	color:#000; 
+	line-height: 1.5em; 
+	font-style:italic;
+}
+/* ==== Styling for footer */
+footer{
+	clear: both;
+	margin-top: 0;
+	background-color:  #105187;
+	bottom: 0;
+	/*height: 20px;*/
+}
+
+footer a, footer li{color: #fff; font-size:1.2em} /**/
+footer a:hover, #credit a:hover{font-weight: bold;}
+footer li:nth-child(3), #credit li{float:right;}
+ul{
+	list-style-type: none;
+	overflow: hidden;
+}
+li{
+	float:left;
+	padding: 0 5px;
+}
+li a {
+    display: block;
+
+}
+/*
+table {
+	border-collapse: collapse;
+}
+footer td:nth-child(3){
+	text-align:right;
+}
+*/
+/* size and position are set in layoutXX.css*/
+
+
+.circle {
+	display: inline-block;
+    border: 1px solid #000;
+    border-radius: 50%;
+	behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    height: 7px;
+    width: 7px;
+}
+.line{
+	display: inline-block;
+	behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    height: 2px;
+    width: 12px;	
+}
+.red {background: #D63333;}
+.yellow {background: #CCFF33;}
+.blue {background: #476CDA;}
+.pink{background: #FF66CC;}
+.brown{background: #CC9900}
+.green{background: #66FF33}
+.aqua{background: #00FF99}
+
+.rectangle{
+	display: inline-block;
+	border: 1px solid #333333;
+	behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    height: 8px;
+    width: 12px;
+}
+.building {background: #FF8080;}
+.parking {background: #A3A3C2;}
+.instruction{
+	position: absolute;
+	background-color:rgba(219,200,200, 0.8);
+	-webkit--radius: 10px;
+	-moz--radius: 10px;
+	border-radius: 10px;
+	filter: dropshadow(color=#333, offx=5px, offy=5px);
+}
+ul{
+	list-style-position:outside;
+	margin-left: -2em;
+}
+
+
+.googft-info-window {
+	width: auto;
+	height: auto;
+	overflow-x:hidden;
+	overflow-y:auto;
+	font-size: 0.8em;
+	line-height: 1.5em;
+}
+.googft-info-window2 {
+	width: 200px;
+	height: auto;
+	overflow-x: hidden;
+	overflow-y:auto;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+.googft-info-window.title {
+	color: red;
+}
+
+/*leave that for future effect*/
+

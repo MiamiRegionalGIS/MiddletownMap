@@ -1,0 +1,52 @@
+/* Layout Small Screens */
+#wrapper{
+	max-width: 480px;
+}
+
+td:nth-child(1){
+	width: 0px;
+	display:none;
+}
+
+.buttongroup{ 
+	float:left;
+	bottom: 0px;
+	left: 5px;
+}
+
+.dropdownlist{
+	display:inline;
+}
+
+	
+.instruction{
+	display:none;
+}
+.checkboxOne{
+	font-size: .9em;
+}
+.circle {
+    height: 6px;
+    width: 6px;
+}
+.line{
+    height: 2px;
+    width: 11px;
+}
+.rectangle{
+    height: 7px;
+    width: 11px;
+}
+
+.googft-info-window
+{
+	width: 200px;
+	height: auto;
+}
+
+footer li:nth-child(3){
+	float: left;
+}
+@media screen and (max-width: 480px){
+	footer {padding-left:5px;}
+}
