@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,24 +7,47 @@ session_start();
     <meta name="keywords" content="Middletown, Ohio, map" />
 	<meta name="description" content="Map of the City of Middltown, OH" />
 	<link rel="stylesheet" type="text/css" href="main.css" media="screen,projection" />
-	<link rel="stylesheet" type="text/css" href="layout_pc.css" media="screen,projection" />
-	<link rel="stylesheet" type="text/css" media="screen and (min-width: 0px) and (max-width:480px)" href="layout_mobile.css" />
-	<link rel="stylesheet" type="text/css" media="screen and (min-width: 481px) and (max-width:768px)" href="layout_tablet.css" />
-	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" />
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="layout_pc.css" 
+	media="screen,projection" />
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 0px) 
+	and (max-width:480px)" href="layout_mobile.css" />
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 481px) 
+	and (max-width:768px)" href="layout_tablet.css" />
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14
+	/themes/base/jquery-ui.css" type="text/css" />
+	
+	<!-- GG: CHANGED THIS META TAG-->
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<!--<style type="text/css" media="all">@import "Defaulty.css";</style> 
-	<link rel="stylesheet" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/css" media="all" />
-	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.5.0/dojo/resources/dojo.css" type="text/css" media="all" />
-	<link rel="stylesheet" src="//ajax.googleapis.com/ajax/libs/dojo/1.5.0/dijit/themes/claro/claro.css" type="text/css" media="all" />
-	<link rel="stylesheet" src="//ajax.googleapis.com/ajax/libs/dojo/1.5.0/dijit/themes/tundra/tundra.css" type="text/css" media="all" />-->
+	<link rel="stylesheet" 
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/css" 
+	media="all" />
+	<script 
+	src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<link rel="stylesheet" 
+	href="http://ajax.googleapis.com/ajax/libs/dojo/1.5.0/dojo/resources/dojo.css" 
+	type="text/css" media="all" />
+	<link rel="stylesheet" 
+	src="//ajax.googleapis.com/ajax/libs/dojo/1.5.0/dijit/themes/claro/claro.css" 
+	type="text/css" media="all" />
+	<link rel="stylesheet" 
+	src="//ajax.googleapis.com/ajax/libs/dojo/1.5.0/dijit/themes/tundra/tundra.css" 
+	type="text/css" media="all" />-->
 
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA79T28GLr_8Asb_E8BlDmRpWQnMT-PAro&sensor=false"></script>
-	<!--<script djConfig="parseOnLoad:true" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.5.0/dojo/dojo.xd.js"></script>-->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api
+	/js?key=AIzaSyA79T28GLr_8Asb_E8BlDmRpWQnMT-PAro&sensor=false"></script>
+	
+	<!--<script djConfig="parseOnLoad:true" type="text/javascript" 
+	src="http://ajax.googleapis.com/ajax/libs/dojo/1.5.0
+	/dojo/dojo.xd.js"></script>-->
+	
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript"
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
     </script>
+    
     <script type="text/javascript"
         src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js">
     </script>
@@ -63,150 +82,71 @@ session_start();
 
 		var myOptions = {
 	        center: new google.maps.LatLng(39.51,-84.39),
-	        zoom: 13, 
+	        zoom: 14, 
 	        panControl: false,
 	        streetViewControl: false,
 	        mapTypeControl:false,
 	        mapTypeId: google.maps.MapTypeId.ROADMAP,//"OSM",
 	        styles:styles};
-	        
-
 	    
 	    //styledmap = new google.maps.StyledMapType(styles, {name: "Styled Map"});*/
 	    map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-		/*
 		//Define OSM map type pointing at the OpenStreetMap tile server
             map.mapTypes.set("OSM", new google.maps.ImageMapType({
                 getTileUrl: function(coord, zoom) {
+                    
                     // "Wrap" x (longitude) at 180th meridian properly
-                    // NB: Don't touch coord.x: because coord param is by reference, and changing its x property breaks something in Google's lib
+                    // NB: Don't touch coord.x: because coord param is by reference, and 
+                    //changing its x property breaks something in Google's lib
+                    
                     var tilesPerGlobe = 1 << zoom;
                     var x = coord.x % tilesPerGlobe;
                     if (x < 0) {
                         x = tilesPerGlobe+x;
                     }
-                    // Wrap y (latitude) in a like manner if you want to enable vertical infinite scrolling
+                    // Wrap y (latitude) in a like manner if you want to enable vertical 
+                    //infinite scrolling
 
-                    return "https://tile.openstreetmap.org/" + zoom + "/" + x + "/" + coord.y + ".png";
+                    return "https://tile.openstreetmap.org/" + zoom + "/" + x + "/" + 
+                    coord.y + ".png";
                 },
                 tileSize: new google.maps.Size(256, 256),
                 name: "OpenStreetMap",
                 maxZoom: 18
-            }));*/
-		//map.data.loadGeoJson('MiddletownRoadsWGS842.geojson'/*,{ idPropertyName: 'Name' });*/
+            }));
+		map.data.loadGeoJson('MiddletownRoadsWGS842.geojson'/*,{ idPropertyName: 'Name' 
+		}*/);
 		//add more GeoJSON data. reserve the code below for future use
-		//map.data.addGeoJson('map8.geojson');
+		map.data.addGeoJson('map8.geojson');
 		/*
 		layer = new google.maps.FusionTablesLayer({
 		  query: {
 		    select: 'geometry',
 		    from: '1s24ZMnYrmyZTDTy84t1gCUY_hGLpmZMxbmGS0pU' 
 		   }, 
-		   styleId:7, //style is create using online Fusion Tables API v1 > fusiontables.style.insert 
-		   //to access the tool, login  google drive and open the fusion table, click Help>Fusion Tables Help Center>Visualize> Map>Set map styles
-		   //using Fusion table API to set the default style, using Google Map API to dynamically change style 
+		   styleId:7, //style is create using online Fusion Tables API v1 > 
+		   fusiontables.style.insert 
+		   //to access the tool, login  google drive and open the fusion table, click 
+		   Help>Fusion Tables Help Center>Visualize> Map>Set map styles
+		   //using Fusion table API to set the default style, using Google Map API to 
+		   dynamically change style 
 		 suppressInfoWindows: true,
 		});
 	 	//map.mapTypes.set('map_style', styledmap);
   		//map.setMapTypeId('map_style');
   		*/
-		
-		/*//Define custom WMS layer for Middletown city in WGS84
-            var layer =
-             new google.maps.ImageMapType(
-             {
 
-                 getTileUrl: function (coord, zoom) {
-                     // Compose URL for overlay tile
-                     var s = Math.pow(2, zoom);
-                     var twidth = 256;
-                     var theight = 256;
-
-                     //latlng bounds of the 4 corners of the google tile
-                     //Note the coord passed in represents the top left hand (NW) corner of the tile.
-                     var gBl = map.getProjection().fromPointToLatLng(new google.maps.Point(coord.x * twidth / s, (coord.y + 1) * theight / s)); // bottom left / SW
-                     var gTr = map.getProjection().fromPointToLatLng(new google.maps.Point((coord.x + 1) * twidth / s, coord.y * theight / s)); // top right / NE
-
-                     // Bounding box coords for tile in WMS pre-1.3 format (x,y)
-
-                     var bbox = parseFloat(gBl.lat()) + "," + parseFloat(gBl.lng()) + "," + parseFloat(gTr.lat()) + "," + parseFloat(gTr.lng());
-
-                     //base WMS URL
-                     var url = "http://localhost:8080/geoserver/wfs?request=GetFeature";
-
-                     url += "&service=WFS";           //WMS service
-                     url += "&version=1.1.0";         //WMS version
-                     url += "&typeName=geosolutions:mdt_address_merge";        //WMS operation
-                     //url += "&layers="; //WMS layers to draw
-                     //url += "&styles=";               //use default style
-                     url += "&outputFormat=application/json";      //image format
-                     //url += "&TRANSPARENT=TRUE";      //only draw areas where we have data
-                     //url += "&srs=EPSG:4326";         //projection WGS84
-                     //url += "&bbox=" + bbox;          //set bounding box for tile
-                     //url += "&width=256";             //tile size used by google
-                     //url += "&height=256";
-                     //url += "&tiled=true";
-                     return url;                 //return WMS URL for the tile
-					 
-					 
- 
-					},
-                 tileSize: new google.maps.Size(256, 256),
-                 opacity: 0.85,
-                 isPng: true
-             });*/
-		
-		//use php to connect to GeoServer, query table 
-		//and load a json object extracted from another domain, 
-		//that domain must have enabled Cross-origin resource sharing 
-		var	fields = ["gid", "id"]; 
-		$.ajax("getData.php", {
-		data: {
-			table: "mdt_boundary",
-			fields: fields
-		},
-		success: function(data){
-			//console.log(data); //--to examine the result
-			//A common use of JSON is to exchange data to/from a web server.
-			//When receiving data from a web server, the data is always a string.
-			//Parse the data with JSON.parse(), and the data becomes a JavaScript object.
-			var features = JSON.parse(data); 
-			//--Use the addGeoJson method of data instead of loadGeoJson. 
-			//--loadGeoJson expects an URL as parameter, not a GeoJSON featurecollection object.
-			map.data.addGeoJson(features); 	
-			
-		}
-		});
-			
-		/*
-		function loadGeoJson(data) { 
-			console.log('data returned');
-			alert(data);
-			map.data.loadGeoJson(data); 
-		}; 
-		$geoJsonUrl = "http://localhost:8080/geoserver/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=mdt_boundary&srsName=EPSG:4326&outputFormat=json&format_options=callback:loadGeoJson"; 
-		//document.getElementById("content-pane").innerHTML = data;
-		$.ajax({ 
-			type: 'POST',
-			url: $geoJsonUrl, 
-			dataType: 'jsonp' 
-		});
-
-		//map.data.loadGeoJson(geoJsonUrl);
-		//map.data.addGeoJson(geoJsonUrl);
-		*/
-		
-		//map.addLayer(geojsonLayer);
-	 	//map.overlayMapTypes.push(layer);
-	 	//json.setMap(map);
-		//AutoComplete();
-	 };
+	 	layer.setMap(map);
+		AutoComplete();
+	 }
 
 	document.addEventListener('DOMContentLoaded', initialize);
 
 	</script>
+	
 </head>
 <body>
+
 	<div id="wrapper" >
     	<header>
 			<p><a href="https://www.cityofmiddletown.org/" target="_blank"><img src="images/CityLogo.png" alt="City of Middletown"></a></p>
@@ -228,16 +168,6 @@ session_start();
 			<div id="content-pane">
 				<!-- legend list for pc and tablet layout--> 
 				<div class="content-title"><h2> Select Layers Here</h2></div>
-				<!-- 
-				<div id="form">
-				<form action="javascript:submitQuery()">
-					<label for="distance">Show features within</label>
-					<input type="text" name="distance"></input>
-					<label for="featname">km of features named</label>
-					<input type="text" name="featname"></input>
-					<input type="submit" value="Submit"></input>
-				</form>
-				</div>-->
 			</div>
 					</td>
 					<td>
