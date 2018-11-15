@@ -1,2 +1,2 @@
 # MiddletownMap
-Web for Middletown, Ohio
+Webmap for Middletown, Ohio
