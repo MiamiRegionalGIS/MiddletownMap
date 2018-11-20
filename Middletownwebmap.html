@@ -16,6 +16,11 @@
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14
 	/themes/base/jquery-ui.css" type="text/css" />
 	
+	<!--GG: Added Open Sans font from google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	
+	
+	
 	<!-- GG: CHANGED THIS META TAG-->
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,6 +40,23 @@
 	<link rel="stylesheet" 
 	src="//ajax.googleapis.com/ajax/libs/dojo/1.5.0/dijit/themes/tundra/tundra.css" 
 	type="text/css" media="all" />-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api
 	/js?key=AIzaSyA79T28GLr_8Asb_E8BlDmRpWQnMT-PAro&sensor=false"></script>
@@ -149,15 +171,26 @@
 
 	<div id="wrapper" >
     	<header>
-			<p><a href="https://www.cityofmiddletown.org/" target="_blank"><img src="images/CityLogo.png" alt="City of Middletown"></a></p>
+			<p><a href="https://www.cityofmiddletown.org/" target="_blank"><img 
+			src="images/CityLogo.png" alt="City of Middletown"></a></p>
 			<div class="buttongroup">
-		  		<!--<button id="btnRoadMap" title="toggle base maps" onclick="btnRoadMap_OnClick()"><a href="#">Map</a></button>
-		  		<button id="btnSateMap" title="toggle base maps" onclick="btnSateMap_OnClick()"><a href="#">Satellite</a></button>
+		  		<!--<button id="btnRoadMap" title="toggle base maps" 
+		  		onclick="btnRoadMap_OnClick()"><a href="#">Map</a></button>
+		  		<button id="btnSateMap" title="toggle base maps" 
+		  		onclick="btnSateMap_OnClick()"><a href="#">Satellite</a></button>
 		  		 merge two button for mobile device layout-->
-		  		<button id="btnBaseMap" title="toggle base maps" onclick="btnBaseMap_OnClick()">Satellite</button>
+		  		
+		  		<button id="btnBaseMap" title="toggle base maps" 
+		  		onclick="btnBaseMap_OnClick()">Satellite</button>
+				
 				<!-- legend list for mobile device layout only--> 
-				<input type="text" id="txtKeyword" value="I am searching for..." onfocus="if (this.value == 'I am searching for...') {this.value = '';}" onfocusout ="if (this.value == '') {this.value = 'I am searching for...';}" size="20" > <!--onfocusout= ="if (this.value == '') {this.value = 'I am searching for...';}"-->
-				<button id="btnQuery" title="Search" onclick="btnQuery_OnClick()" ><img src="images/Search-button1.png" alt="Search" width="20"></button>
+				<input type="text" id="txtKeyword" value="I am searching for..." 
+				onfocus="if (this.value == 'I am searching for...') {this.value = '';}" 
+				onfocusout ="if (this.value == '') {this.value = 'I am searching 
+				for...';}" size="20" > <!--onfocusout= ="if (this.value == '') {this.value 
+				= 'I am searching for...';}"-->
+				<button id="btnQuery" title="Search" onclick="btnQuery_OnClick()" ><img 
+				src="images/Search-button1.png" alt="Search" width="20"></button>
 			</div>
 		</header>
 
@@ -165,21 +198,89 @@
 			<table>
 				<tr>
 					<td>
+					<br>
+					
+			<div class="content-title"><p><h2> Select Layers Here</h2></p></div>
+			<div class="hr"></div>		
 			<div id="content-pane">
 				<!-- legend list for pc and tablet layout--> 
-				<div class="content-title"><h2> Select Layers Here</h2></div>
+		
+				<input type="checkbox" name="legendlist" id="ALL" value="ALL" 
+				onclick="DisplayAllFeatures()" checked><label for='ALL'> All</label><br>
+							
+				<input type="checkbox" name="legendlist" id="Layer1" 
+				value="Layer1" onclick="DisplayFeatures()" >
+				<div class="circle blue"></div><label for='Layer1'> 
+				Layer1</label><br> 
+				
+				<input type="checkbox" name="legendlist" id="Layer2" value="Layer2" 
+				onclick="DisplayFeatures()" ><div class="circle yellow"></div>
+				<label for='Layer2'> Layer2</label><br> 
+				
+				<input type="checkbox" name="legendlist" id="Layer3" value="Layer3" 
+				onclick="DisplayFeatures()"  ><div class="circle brown"></div>
+				<label for="Layer3"> Layer3</label><br>  
+				
+				<input type="checkbox" name="legendlist" id="Layer4" value="Layer4" 
+				onclick="DisplayFeatures()" >
+				<div class="circle aqua"></div><label for="Layer4"> Layer4</label><br>
+				
+				<input type="checkbox" name="legendlist" id="Layer5" 
+				value="Layer5" onclick="DisplayFeatures()" >
+				<div class="circle pink"></div><label for="Layer5"> 
+				Layer5</label><br>
+				
+				<input type="checkbox" name="legendlist" id="Layer6" value="Layer6" 
+				onclick="DisplayFeatures()" >
+				<div class="circle red"></div><label for="Layer6">  Layer6</label><br>
+							
+				<input type="checkbox" name="legendlist" id="Layer7" value="Layer7" 
+				onclick="DisplayFeatures()" >
+				<div class="circle green"></div><label for="Layer7">  Layer7</label><br>
+							
+				<!--input type="checkbox" name="legendlist" id="Layer8" value="Layer8" 	
+				onclick="DisplayFeatures()" >
+				<div class="line white"></div><label for="Layer8">  Layer8</label><br>-->
+				
+				<!--<input type="checkbox" name="legendlist" id="CampusRoads" 
+				value="Campus roads" onclick="DisplayFeatures()" ><div class="line 
+				white2"></div><label for="CampusRoads">  Campus road</label><br>-->
+				
+				<!--<input type="checkbox" name="legendlist" id="Building" 
+				value="Building" onclick="DisplayFeatures()" >
+				<div class="rectangle building"></div><label for="Building">  
+				Building</label><br> -->								
+				
+				<!--<input type="checkbox" name="legendlist" id="Parking" value="Parking" 
+				onclick="DisplayFeatures()" >
+				<div class="rectangle parking"></div><label for="Parking">  
+				Parking</label> -->
+					<br> 		
+							
+						
+						
+						
+	
+			<div id="credit">
+					<a href="">Copyright Notices</a><br>
+					<a href="">Disclaimer</a>
+					<a href="">Privacy Policy</a>
+				
+			</div>
+						
+						
+						
+						
+						
+					</fieldset>
+				</div>
+					
+				
 			</div>
 					</td>
 					<td>
 			<div id="map_canvas" >
-			</div>
-			<div id="credit">
-				<ul>
-					<li><a href="">Copyright Notices</a></li>
-					<li><a href="">Disclaimer</a></li>
-					<li><a href="">Privacy Policy</a></li>
-				</ul>
-			</div>
+
 			
 					</td>
 					</tr>
@@ -187,9 +288,11 @@
 		</article>
 		<footer>
 			<ul>
-	        <li><a href="https://www.cityofmiddletown.org/">CITY OF MIDDLETOWN </a></li>
+	        <li><a href="https://www.cityofmiddletown.org/" class="button">CITY OF 
+	        MIDDLETOWN</a></li>
 			<li>One Donham Plaza, Middletown, Ohio 45042-1932</li> 
-			<li><a href="mailto:MumOHGIS@gmail.com?Subject=Web map comments" target="_top">Questions and comments</a></li>
+			<li><a href="mailto:MumOHGIS@gmail.com?Subject=Web map comments" 
+			target="_top" class="button">Questions and Comments</a></li>
 			</ul>
  		</footer>
 		
